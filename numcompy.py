@@ -621,16 +621,16 @@ class DifferentialEquationNumericSolverInterface(metaclass=abc.ABCMeta):
         raise NotImplementedError
 
 
-class RungeKutta:
+class RungeKuttaDifferentialEquationSolverProvider:
     def __call__(self, degree):
         if degree == 1:
-            return FirstDegreeRungeKuttaDifferentialEquationSolver
+            return FirstDegreeRungeKuttaDifferentialEquationSolver()
         elif degree == 2:
-            return SecondDegreeRungeKuttaDifferentialEquationSolver
+            return SecondDegreeRungeKuttaDifferentialEquationSolver()
         elif degree == 3:
-            return ThirdDegreeRungeKuttaDifferentialEquationSolver
+            return ThirdDegreeRungeKuttaDifferentialEquationSolver()
         elif degree == 4:
-            return FourthDegreeRungeKuttaDifferentialEquationSolver
+            return FourthDegreeRungeKuttaDifferentialEquationSolver()
         else:
             raise ValueError("degree should be an integer between 1 and 4!")
 
